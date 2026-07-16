@@ -48,10 +48,9 @@ Katalog dibagi menjadi 5 kategori dengan peran masing-masing:
 
 | Kategori | Peran dalam katalog | Rentang harga |
 |---|---|---|
-| Voal | Produk masuk (entry point), volume penjualan tertinggi | Rp 60.000 – 65.000 |
-| Pashmina | Produk margin lebih tinggi, target pekerja muda | Rp 85.000 – 95.000 |
-| Instan | Produk kenyamanan/kepraktisan, repeat purchase tinggi | Rp 55.000 – 68.000 |
-| Segiempat | Produk gaya/motif, mendorong pembelian impulsif | Rp 70.000 – 75.000 |
+| Pashmina | Produk margin lebih tinggi, target pekerja muda | Rp 70.000 – 80.000 |
+| Instan | Produk kenyamanan/kepraktisan, repeat purchase tinggi | Rp 20.000 – 30.000 |
+| Segiempat | Produk gaya/motif, mendorong pembelian impulsif | Rp 45.000 – 60.000 |
 | Aksesoris | Produk pelengkap, menaikkan nilai keranjang (upsell) | Rp 25.000 – 30.000 |
 
 Setiap produk pada katalog memuat: nama, kategori, warna, harga, deskripsi manfaat (bukan sekadar spesifikasi), bahan, ukuran, dan foto. Deskripsi ditulis dari sudut pandang manfaat pemakaian (mis. "tidak menerawang", "tidak mengikat kepala") agar membantu keputusan beli, bukan hanya menjelaskan cara produk dibuat.
@@ -106,86 +105,3 @@ Karena prototipe ini murni front-end, seluruh "pembayaran" hanya simulasi. Untuk
 - Update katalog dan stok mingguan.
 - Audit tautan rusak dan kecepatan muat halaman (Lighthouse) setiap bulan.
 - Backup data pesanan (saat backend nyata sudah berjalan) harian.
-
-## 10. Rencana Penggunaan Data Analytics
-
-Website ini menyertakan cuplikan Google Analytics 4 (dummy, Measurement ID placeholder `G-XXXXXXXXXX`) beserta event kustom di `js/script.js` melalui fungsi `trackEvent()`. Event yang dipantau:
-
-| Event | Kapan terpicu | Kegunaan bisnis |
-|---|---|---|
-| `search` | Pengguna mengetik kata kunci pencarian | Mengetahui kata kunci populer & kata kunci yang tidak menemukan hasil (peluang produk baru) |
-| `view_item` | Produk dibuka di modal detail | Produk paling banyak dilihat vs. paling banyak dibeli (gap konversi) |
-| `add_to_cart` | Produk ditambahkan ke keranjang | Funnel awal konversi, indikasi minat nyata |
-| `begin_checkout` | Form checkout dibuka | Mengukur *cart abandonment* bila tidak lanjut ke `purchase` |
-| `purchase` | Checkout berhasil disubmit | Revenue, rata-rata nilai transaksi (AOV), metode pembayaran favorit |
-
-Metrik turunan yang akan dipantau di Google Analytics setelah live:
-- **Bounce rate** per halaman (terutama halaman katalog) untuk menilai relevansi konten.
-- **Conversion rate** = `purchase` ÷ sesi unik, dipantau per sumber trafik (organik, iklan, media sosial).
-- **Cart abandonment rate** = (`begin_checkout` − `purchase`) ÷ `begin_checkout`, untuk mengevaluasi hambatan pada formulir checkout.
-- **Produk terlaris & kategori dengan performa terendah**, sebagai dasar keputusan restock dan diskon.
-
-Data ini akan direview mingguan oleh tim untuk menyesuaikan strategi promosi dan katalog pada bagian 6 dan 4.
-
----
-
-## 11. Penjelasan Teknis
-
-### Struktur folder
-```
-nae-hijab/
-├── index.html          # Struktur halaman: navbar, hero, katalog, tentang, footer, modal, cart drawer
-├── css/
-│   └── style.css        # Design tokens, layout Flexbox/Grid, responsive media query
-├── js/
-│   └── script.js         # Data produk, filter/search/sort, keranjang (localStorage), validasi checkout, GA event
-├── images/               # (opsional) aset gambar lokal — prototipe ini memakai placeholder picsum.photos
-└── README.md             # Dokumen ini
-```
-
-### Fitur teknis yang diimplementasikan
-- **Responsive design** — breakpoint di 960px, 720px, dan 480px menggunakan CSS Grid & Flexbox, menu hamburger untuk mobile.
-- **Filter & pencarian** — filter kategori (chip), pencarian nama/warna/kategori secara real-time, dan pengurutan harga/nama.
-- **Keranjang belanja** — tambah/kurangi kuantitas, hapus item, total otomatis, tersimpan di `localStorage` sehingga tidak hilang saat halaman di-refresh.
-- **Modal detail produk** — dibuka dari gambar atau nama produk, memuat kuantitas sebelum ditambahkan ke keranjang.
-- **Checkout & validasi form** — validasi nama, email, nomor HP, alamat, kota, dan kode pos dengan pesan kesalahan inline, tanpa reload halaman.
-- **Simulasi payment gateway** — tiga metode pembayaran dummy merepresentasikan integrasi Midtrans.
-- **Smooth scroll & scroll reveal** — navigasi antar-seksi halus, kartu produk muncul dengan animasi fade-in saat discroll (`IntersectionObserver`), menghormati preferensi `prefers-reduced-motion`.
-- **Integrasi Google Analytics (dummy)** — snippet `gtag.js` di `<head>` dan pemanggilan event kustom di `trackEvent()`.
-
-### Mengapa vanilla HTML/CSS/JS?
-Proyek ini sengaja dibangun tanpa framework (Bootstrap/Tailwind/React) agar seluruh logika DOM, state keranjang, dan validasi form ditulis dan dipahami sendiri — sesuai tujuan pembelajaran mata kuliah untuk menguasai fundamental JavaScript ES6+ dan CSS modern (Flexbox/Grid) sebelum mengandalkan library pihak ketiga.
-
-### Cara menjalankan secara lokal
-1. Unduh/clone repository ini.
-2. Buka `index.html` langsung di browser, atau jalankan server statis sederhana, misalnya:
-   ```bash
-   npx serve .
-   ```
-3. Tidak ada proses build atau instalasi dependency — murni HTML/CSS/JS.
-
-### Rencana deployment
-1. Push seluruh folder ke branch `main` repository GitHub.
-2. Aktifkan **GitHub Pages** melalui `Settings → Pages → Deploy from branch → main / root`.
-3. Salin URL yang dihasilkan (`https://<username>.github.io/<repo>/`) ke bagian atas dokumen ini.
-
-### Checklist commit yang disarankan
-1. `init: struktur folder dan boilerplate HTML`
-2. `feat: navbar dan hero section`
-3. `feat: data produk dan render katalog`
-4. `feat: filter kategori dan pencarian`
-5. `feat: sorting produk`
-6. `feat: modal detail produk`
-7. `feat: keranjang belanja dengan localStorage`
-8. `feat: halaman/modal checkout dan validasi form`
-9. `feat: integrasi Google Analytics dummy`
-10. `style: responsive design dan animasi scroll reveal`
-11. `docs: business overview di README`
-
----
-
-## 12. Lampiran
-
-- Screenshot desktop & mobile: `<tempel di sini atau tautkan ke folder /screenshots>`
-- Video demo (opsional): `<tautan video 2–3 menit>`
--
