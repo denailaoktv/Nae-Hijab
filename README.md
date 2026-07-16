@@ -1,3 +1,12 @@
+<img width="736" height="981" alt="viscose basic jpg" src="https://github.com/user-attachments/assets/3c6cb5a7-e307-4cab-ba3f-01aa7e3f6b96" />
+<img width="736" height="921" alt="pin mate classic" src="https://github.com/user-attachments/assets/c9b1e5db-b803-4521-9d38-386e2d4d1a36" />
+<img width="736" height="981" alt="pin glossy" src="https://github.com/user-attachments/assets/a8230cf4-2fc9-4b2b-bd09-d5ac902a9ac3" />
+<img width="736" height="920" alt="pashmina shawl arabian jpg" src="https://github.com/user-attachments/assets/d946cc10-ce6e-469c-a502-af76824e7c2d" />
+<img width="736" height="1121" alt="pashmina print biru jpg" src="https://github.com/user-attachments/assets/2c896eb3-390c-49cb-ab7a-1691566dd734" />
+<img width="736" height="981" alt="pashmina kaos jpg" src="https://github.com/user-attachments/assets/937ce8de-c73f-4adb-9b8e-2ace5ff3f1af" />
+<img width="736" height="736" alt="inner hijab arab (1)" src="https://github.com/user-attachments/assets/dfc25c4c-7db7-4f02-a265-535c69400832" />
+<img width="736" height="1309" alt="segiempat basic jpg" src="https://github.com/user-attachments/assets/9968700a-a1f6-47a5-84db-e2429084466e" />
+<img width="736" height="736" alt="bergo instan tencel" src="https://github.com/user-attachments/assets/4485181f-57d1-4e52-b5c8-ba68e92cd946" />
 ## 🧕Nae Hijab 
 
 ## 1. Ringkasan Bisnis
