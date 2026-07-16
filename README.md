@@ -29,3 +29,24 @@ Nae Hijab adalah website toko online (e-commerce) yang menghadirkan koleksi hija
 - **Google Analytics (gtag.js)** — tracking pengunjung
 
 ## 📂 Struktur Folder
+Nae Hijab/
+├── index.html      # Halaman utama
+├── style.css        # Styling
+├── script.js         # Logika produk, keranjang & checkout
+└── README.md
+## 🚀 Cara Menjalankan
+
+1. Clone repository ini
+   ```bash
+   git clone https://github.com/denailaoktv/Nae-Hijab.git
+cd Nae-Hijab
+🎯 Target Pengguna
+Mahasiswi & pekerja muda usia 18–30 tahun yang mencari hijab harian praktis
+Pembeli yang mengutamakan bahan adem dan mudah dirapikan sendiri
+Reseller kecil yang butuh stok konsisten dengan harga grosir
+📸 Tampilan
+Tambahkan screenshot tampilan website (hero, katalog, keranjang, checkout) di sini agar pengunjung repo bisa melihat preview-nya.
+🤝 Kontribusi
+Pull request dipersilakan. Untuk perubahan besar, mohon buka issue terlebih dahulu untuk mendiskusikan perubahan yang diinginkan.
+📄 Lisensi
+Dibuat untuk Tugas Besar KAIT II — © 2026 Nae Hijab.
